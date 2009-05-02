@@ -1,0 +1,50 @@
+=== 1.0.1 / 2009-3-4
+
+* Fixed a bug that would cause some API parameters to not be sent when uploading
+  a document.
+
+=== 1.0.0 / 2008-11-26
+
+* First release version.
+* Comprehensive RSpec of all code.
+* read_attributes method now works correctly.
+* Uploading a document as a not-yet-created user no longer uploads it into the
+  default API account.
+* Finding documents owned by a not-yet-created user now returns nil.
+* Symbol#to_proc definedd for RScribd use in non-Rails projects.
+* Minor code style improvements.
+
+=== 0.1.2 / 2008-11-26
+
+* Happy Thanksgiving!
+* Potential security issue resolved by having the document's privacy setting set
+  in the same request as the upload.
+* Bug fixed where some files with uppercase extensions would not convert.
+
+=== 0.1.1 / 2008-10-6
+
+* Fixed bug that occurs when parsing empty elements.
+
+=== 0.1.0 / 2008-10-1
+
+* Changed Scribd::Document.find method to take an ActiveRecord-style scope
+  variable (which can be :all, :first, etc.) as its first parameter. Options are
+  now specified as the second parameter.
+* Scribd::Document.find can also be used with a single integer to find a
+  document by ID.
+* Scribd::Document.find now takes offset and limit parameters (for scopes that
+  return arrays of documents).
+* Added a Scribd::Document#download_url method.
+* Should no longer raise an exception when logging in.
+
+=== 0.0.5 / 2008-09-25
+
+* Updated RScribd to work with server-side API changes.
+
+=== 0.0.4 / 2008-02-20
+
+* Fixed a bug that caused errors when Rails models shared the same name as Scribd objects.
+
+=== 0.0.3 / 2008-02-18
+
+* Initial RubyForge project

@@ -1,0 +1,103 @@
+<% title "Поиск" %>
+
+ <% form_tag 'themes', :method => :get do -%>
+ 	<div id="search">
+		<%= text_field_tag(:q,params[:q], :size => 40) %>
+ 		<%= submit_tag "Искать" %>
+ 	</div>
+ <% end -%>
+
+<% if @themes.blank? or @themes.empty?%>
+  <p>Записей не наидено</p>
+<% else %>
+
+<div class="search_table">
+<% if @themes and not @themes.empty? %>
+
+<table width=95% border=1 cellpadding=4 cellspacing=0 align=left >
+
+<caption>Список авторефератов и диссертации</caption>
+	 <tr>
+	 <th rowspan=2>№</th><th rowspan=2>Автор</th><th rowspan=2>Тема</th><th rowspan=2>Организация</th><th rowspan=2>Год</th><th rowspan=2>Шифр</th><th rowspan=2>Специальность</th><th rowspan=2>Степень</th><th rowspan=2>Текст автореферата</th>
+	        <% if  admin_do?(current_user) %>
+	 <th rowspan=2>Текст диссертации</th><th colspan=2>Скачать текст автореферата</th><th colspan=2>Скачать текст диссертации</th><th rowspan=2>Действия</th>
+	        <% end %>
+	 </tr>
+
+	 <tr>
+	        <% if  admin_do?(current_user) %>
+	 <th>.Doc</th><th>Pdf</th><th>.Doc</th><th>Pdf</th>
+	        <% end %>
+	 </tr>
+
+<% @themes.each do |t| %>
+<tr class="<%= cycle("even","odd") %>">
+	<td valign=top><%= t.id %> </td>
+	<td valign=top><%= t.fio %> </td>
+	<td valign=top><%= link_to t.theme_name, :controller => :themes, :action => :show, :id => t.id %></td>
+	<td valign=top><%= t.organization.organization_name %></td>
+	<td valign=top><%= t.year_name %></td>
+	<td valign=top><%= t.profession.code_name %></td>
+	<td valign=top><%= t.profession.profession_name %> <% t.areas.each do |ar|%> (<%= ar.area_name %>) <% end %> <% t.subareas.each do |subar| %>(<%= subar.subarea_name %>) <% end %></td>
+
+
+	<td valign=top><%= t.profession.grade.grade_name %></td>
+
+	<td valign=top><% if t.avtoref_pdf != nil and t.avtoref_pdf.ipaper_id != nil %>
+	<%= link_to "Просмотр", {:controller => :themes, :action => :show_avtoref_pdf, :id => t.id}, :target => "_blank" %>
+		<% elsif t.avtoref_doc != nil and t.avtoref_doc.ipaper_id != nil %>
+	<%= link_to "Просмотр", {:controller => :themes, :action => :show_avtoref_doc, :id => t.id}, :target => "_blank" %>
+			<% end %></td>
+
+	<% if  admin_do?(current_user) %>
+
+	<td valign=top><% if t.disser_pdf != nil and t.disser_pdf.ipaper_id != nil %>
+	<%= link_to "Просмотр", {:controller => :themes, :action => :show_disser_pdf, :id => t.id, :mode => 'disser_pdf'}, :target => "_blank" %>
+		<% elsif t.disser_doc != nil and t.disser_doc.ipaper_id != nil %>
+	<%= link_to "Просмотр", {:controller => :themes, :action => :show_disser_doc, :id => t.id}, :target => "_blank" %>
+			<% end %></td>
+
+	<% if t.avtoref_doc != nil and t.avtoref_doc.adoc.exists? %>
+	<td valign=top><%= link_to image_tag("doc.jpeg", :border => 0) , :controller => :themes, :action => :download_avtoref_doc, :id => t.id %></td>
+	<% else %>
+	<td valign=top><%= image_tag("doc_no.jpeg", :border => 0) %></td>
+	<% end %>
+
+	<% if t.avtoref_pdf != nil and t.avtoref_pdf.apdf.exists? %>
+	<td valign=top><%= link_to image_tag("pdf.jpeg", :border => 0) , :controller => :themes, :action => :download_avtoref_pdf, :id => t.id %></td>
+	<% else %>
+	<td valign=top><%= image_tag("pdf_no.jpeg", :border => 0)  %></td>
+	<% end %>
+
+	<% if t.disser_doc != nil and t.disser_doc.ddoc.exists? %>
+	<td valign=top><%= link_to image_tag("doc.jpeg", :border => 0) , :controller => :themes, :action => :download_disser_doc, :id => t.id %></td>
+	<% else %>
+	<td valign=top><%= image_tag("doc_no.jpeg", :border => 0)  %></td>
+	<% end %>
+
+	<% if t.disser_pdf != nil and t.disser_pdf.dpdf.exists? %>
+	<td valign=top><%= link_to image_tag("pdf.jpeg", :border => 0) , :controller => :themes, :action => :download_disser_pdf, :id => t.id %></td>
+	<% else %>
+	<td valign=top><%= image_tag("pdf_no.jpeg", :border => 0)  %></td>
+	<% end %>
+
+	<td valign=top><%= link_to "Редактировать" , edit_theme_path(t) %>
+	<small><%= link_to "Удалить" , t, :method => :delete %></small></td>
+
+	</tr>
+ 	<% end %>
+        <% end %>
+	</table>
+<% else %>
+<p>Записей не наидено</p>
+<% end %>
+
+
+</div>
+<br />
+<br />
+<% end %>
+<div class="pagination">
+<%= will_paginate @paging %>
+</div>
+

@@ -1,0 +1,56 @@
+<% title @theme.theme_name %>
+
+<p><strong>Автор: </strong>  <%= @theme.fio %><br />
+<strong>Название: </strong> <%= @theme.theme_name %><br />
+<strong>Год: </strong> <%= @theme.year_name %> <br />
+<strong>Организация: </strong> <%= @theme.organization.organization_name %> <br />
+<strong>Шифр: </strong> <%= @theme.profession.code_name %> <br />
+<strong>Специальность: </strong> <%= @theme.profession.profession_name %> <br />
+
+<strong>Области: </strong> <%= @theme.areas.map {|ar| ar.area_name}.compact.join(",") %> <br />
+
+<strong>Подобласти: </strong> <%= @theme.subareas.map {|subar| subar.subarea_name}.compact.join(",") %> <br />
+
+
+<strong>Степень: </strong> <%= @theme.profession.grade.grade_name %> <br />
+<strong>Текст автореферата: </strong> <% if @theme.avtoref_pdf != nil and @theme.avtoref_pdf.ipaper_id != nil %>
+	<%= link_to "Просмотр", {:controller => :themes, :action => :show_avtoref_pdf, :id => @theme.id}, :target => "_blank" %>
+		<% elsif @theme.avtoref_doc != nil and @theme.avtoref_doc.ipaper_id != nil %>
+	<%= link_to "Просмотр", {:controller => :themes, :action => :show_avtoref_doc, :id => @theme.id}, :target => "_blank" %>
+			<% end %><br />
+
+<% if admin_do?(current_user) %>
+<strong>Текст диссертации: </strong>
+	<% if @theme.disser_pdf != nil and @theme.disser_pdf.ipaper_id != nil %>
+	<%= link_to "Просмотр", {:controller => :themes, :action => :show_disser_pdf, :id => @theme.id, :mode => 'disser_pdf'}, :target => "_blank" %>
+		<% elsif @theme.disser_doc != nil and @theme.disser_doc.ipaper_id != nil %>
+	<%= link_to "Просмотр", {:controller => :themes, :action => :show_disser_doc, :id => @theme.id}, :target => "_blank" %>
+			<% end %><br />
+
+<strong>Текст автореферата в формате MS Word: </strong>
+	<% if @theme.avtoref_doc != nil and @theme.avtoref_doc.adoc.exists? %>
+	<%= link_to "Скачать" , :controller => :themes, :action => :download_avtoref_doc, :id => @theme.id %>
+	<% end %><br />
+
+<strong>Текст автореферата в формате PDF: </strong>
+	<% if @theme.avtoref_pdf != nil and @theme.avtoref_pdf.apdf.exists? %>
+	<%= link_to "Скачать" , :controller => :themes, :action => :download_avtoref_pdf, :id => @theme.id %>
+	<% end %><br />
+
+<strong>Текст диссертации в формате MS Word: </strong>
+	<% if @theme.disser_doc != nil and @theme.disser_doc.ddoc.exists? %>
+	<%= link_to "Скачать" , :controller => :themes, :action => :download_disser_doc, :id => @theme.id %>
+	<% end %> <br />
+
+<strong>Текст диссертации в формате PDF: </strong>
+	<% if @theme.disser_pdf != nil and @theme.disser_pdf.dpdf.exists? %>
+	<%= link_to "Скачать" , :controller => :themes, :action => :download_disser_pdf, :id => @theme.id %>
+	<% end %> <br />
+
+<strong>Последнее обновление: </strong> <%= distance_of_time_in_words(@theme.updated_at, Time.now) %>
+<% end %>
+</p>
+<hr />
+
+<%= link_to_back 'Назад'  %>
+

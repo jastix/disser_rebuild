@@ -1,0 +1,90 @@
+<h1> Новая запись </h1>
+<% @theme.build_avtoref_doc if @theme.avtoref_doc.nil? %>
+<% @theme.build_avtoref_pdf if @theme.avtoref_pdf.nil? %>
+<% @theme.build_disser_doc if @theme.disser_doc.nil? %>
+<% @theme.build_disser_pdf if @theme.disser_pdf.nil? %>
+<%= error_messages_for 'theme' -%>
+
+<% form_for (@theme), :url => {:action => 'create'},:html => { :multipart => true}  do |f| %>
+
+<p><label for="theme_name">Название работы</label><br/>
+<%= f.text_field  :theme_name, {:size => 100}  %></p>
+
+<p><label for="theme_fio">Автор</label><br/>
+<%= f.text_field  :fio, {:size => 50} %></p>
+
+<p><label for="theme_year_name">Год</label><br/>
+<%= select(:theme, :year_name, @years )%></p>
+
+<p><label for="organization_organization_name">Организация</label><br />
+<%= collection_select(:theme, :organization_id, @organizations, :id, :organization_name)%></p>
+
+
+
+<p><label for="profession_profession_name">Специальность</label><br/></p>
+<%= collection_select(:theme, :profession_id, @professions, :id, :profession_name,
+			{:include_blank => true},
+			{:onchange => "#{remote_function(:url => {:action => "update_grades"},
+			:with => "'profession_id='+value")}"})%>
+
+<p><label for="area_name[]">Область</label><br/>
+<div id="areas"><%= render :partial => 'areas', :object => @areas %> </div>
+
+<p><label for="subarea_name[]">Подобласть</label><br/>
+<div id="subareas"><%= render :partial => 'subareas', :object => @subareas %></div>
+
+<p><label for="grade_grade_name">Степень</label><br/></p>
+<div id="grades"><%= render :partial => 'grades', :object => @grades %></div>
+
+
+<p><label for="theme_text_abstract"><b>Текст автореферата</b></label><br/>
+<%= f.text_area :text_avtoref, {:size =>"80x30"} %>
+
+<p><label for="theme_text_dissertation">Текст диссертации</label><br/>
+<%= f.text_area  :text_disser, {:size =>"80x30"} %>
+
+ <p><label for="avtoref_file">Файлы автореферата</label><br /></p>
+
+<p><% f.fields_for :avtoref_doc do |avd| %>
+	Doc <%= avd.file_field :adoc %> <% if @theme.avtoref_doc != nil and @theme.avtoref_doc.adoc.exists? %>Текущий файл: <%= @theme.avtoref_doc.adoc.original_filename %>
+	<% end %><br /></p>
+<% unless avd.object.nil? || avd.object.new_record?%>
+<p>
+<%= avd.label :_delete, 'Удалить:' %>
+<%= avd.check_box :_delete %></p>
+<% end %>
+<% end %>
+<p><% f.fields_for :avtoref_pdf do |avp| %>
+	Pdf <%= avp.file_field :apdf %><% if @theme.avtoref_pdf != nil and @theme.avtoref_pdf.apdf.exists? %>Текущий файл: <%= @theme.avtoref_pdf.apdf.original_filename %>
+	<% end %> <br /></p>
+<% unless avp.object.nil? || avp.object.new_record? %>
+<p>
+<%= avp.label :_delete, 'Удалить:' %>
+<%= avp.check_box :_delete %></p>
+<% end %>
+<% end %>
+<p><label for="disser_file">Файлы диссертации</label><br />
+<p><% f.fields_for :disser_doc do |did| %>
+	Doc <%= did.file_field :ddoc %><% if @theme.disser_doc != nil and @theme.disser_doc.ddoc.exists? %>Текущий файл: <%= @theme.disser_doc.ddoc.original_filename %>
+	<% end %> <br /></p>
+<% unless did.object.nil? || did.object.new_record?%>
+<p>
+<%= did.label :_delete, 'Удалить:' %>
+<%= did.check_box :_delete %></p>
+<% end %>
+<% end %>
+
+
+<p><% f.fields_for :disser_pdf do |dip| %>
+	Doc <%= dip.file_field :dpdf %> <% if @theme.disser_pdf != nil and @theme.disser_pdf.dpdf.exists? %>Текущий файл: <%= @theme.disser_pdf.dpdf.original_filename %>
+	<% end %><br /></p>
+<% unless dip.object.nil? || dip.object.new_record?%>
+<p>
+<%= dip.label :_delete, 'Удалить:' %>
+<%= dip.check_box :_delete %></p>
+<% end %>
+<% end %>
+
+<%= f.submit "Добавить" %>
+<% end %>
+

@@ -1,0 +1,500 @@
+#navcontainer {
+padding: 0;
+height: 36px;
+width:500px;
+margin:0 auto;
+
+}
+#navcontainer li {
+display: block;
+float: left;
+text-align: center;
+}
+#navcontainer li a {
+font-family: Arial;
+font-size:14px;
+text-decoration: none;
+float:left;
+padding: 10px;
+background-color: #2175bc;
+color: #fff;
+}
+#navcontainer li a:hover {
+background-color: #2586d7;
+padding-bottom: 11px;
+border-bottom: 1px groove #eee;
+margin-top: -2px;
+}
+
+
+ul#references {
+	width: 99%;
+	text-align: center;
+	word-spacing: 20px;
+	padding: 5px;
+	background-color: #DFEFF0;
+	border: 1px solid #ccc4
+	margin-bottom: 20px;
+}
+
+ul#references li {
+	display: inline;
+	padding-left: 5px;
+}
+
+
+
+
+/*б�б�аИаЛб� б�аПаИб�аКаА б�б�б�аАаНаИб� */
+/*
+Plugin Name: WP-Digg Style Paginator
+Plugin URI: http://www.mis-algoritmos.com/2007/09/09/wp-digg-style-pagination-plugin-v-10/
+Author: Victor De la Rocha
+Author URI: http://www.mis-algoritmos.com
+*/
+
+/*CSS Sabrosus style pagination*/
+div.pagination {
+	padding:3px;
+	margin:3px;
+	text-align:center;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #9aafe5;
+
+	text-decoration: none;
+	color: #2e6ab1;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #2b66a5;
+	color: #000;
+	background-color: lightyellow;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid navy;
+	font-weight: bold;
+	background-color: #2e6ab1;
+	color: #FFF;
+}
+div.pagination span.disabled {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #929292;
+	color: #929292;
+}
+
+
+
+/*а�аИаНаИаИ аМаЕаНб�*/
+
+.container .header {
+	width: 99%;
+	text-align: center;
+	word-spacing: 20px;
+	background-color: #BDD8DA;
+	border: 1px solid #ccc4
+	margin-bottom: 20px;
+}
+
+
+
+/* а�аЛб� б�аЛаЕб�аА*/
+#flashcontent {
+  height: 100%;
+}
+
+/* аЂаАаБаЛаИб�аА аПаОаЛб�аЗаОаВаАб�аЕаЛаИ */
+.user_table body {
+	font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	background: #E6EAE9;
+}
+
+.user_table a {
+	color: #c75f3e;
+}
+
+.user_table {
+	width: 700px;
+	padding: 0;
+	margin: 0;
+
+}
+
+.user_table caption {
+	padding: 0 0 5px 0;
+	width: 700px;
+	font: italic 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	text-align: right;
+}
+
+.user_table th {
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #CAE8EA ;
+}
+
+.user_table th.nobg {
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #C1DAD7;
+	background: none;
+}
+
+.user_table td {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+	color: #4f6b72;
+}
+
+
+.user_table td.alt {
+	background: #F5FAFA;
+	color: #797268;
+}
+
+.user_table th.spec {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #fff url(images/bullet1.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.user_table th.specalt {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #f5fafa url(images/bullet2.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #797268;
+}
+
+/* б�аАаБаЛаИб�аА б� б�аАаБаОб�аАаМаИ
+
+=====================================
+
+ * Data Tables and Cascading Style Sheets Gallery *
+
+ *  http://icant.co.uk/csstablegallery/index.php  *
+
+ * Author: Velizar Garvalov at  http://www.vhg-design.com/ *
+
+ =====================================
+
+*/
+
+
+
+.search_table {
+
+	width: 100%;
+
+	margin:0;
+
+ 	padding:0;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	color: #1c5d79;
+
+
+
+}
+
+.search_table, tr, th, td {
+
+	border-collapse: collapse;
+
+}
+
+.search_table caption {
+
+margin:0;
+
+ 	padding:0;
+
+	background: #f3f3f3;
+
+	height: 40px;
+
+	line-height: 40px;
+
+	text-indent: 28px;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	font-size: 14px;
+
+	font-weight: bold;
+
+	color: #555d6d;
+
+	text-align: left;
+
+	letter-spacing: 3px;
+
+	border-top: dashed 1px #c2c2c2;
+
+	border-bottom: dashed 1px #c2c2c2;
+
+}
+
+
+
+/* HEAD*/
+
+
+
+.search_table thead {
+
+	background-color: #FFFFFF;
+
+	border: none;
+
+}
+
+.search_table thead tr th {
+
+	height: 32px;
+
+	line-height: 32px;
+
+	text-align: center;
+
+	color: #1c5d79;
+
+	background-image: url(col_bg.gif);
+
+	background-repeat: repeat-x;
+
+	border-left:solid 1px #FF9900;
+
+	border-right:solid 1px #FF9900;
+
+	border-collapse: collapse;
+
+
+
+}
+
+
+
+/* BODY */
+
+
+
+.search_table tbody tr {
+
+	background: #dfedf3;
+
+	font-size: 14px;
+
+}
+
+.search_table tbody tr.odd {
+
+	background: #F0FFFF;
+
+}
+
+.search_table tbody tr:hover, tbody tr.odd:hover {
+
+	background: #ffffff;
+
+}
+
+.search_table tbody tr th, tbody tr td {
+
+	padding: 6px;
+
+	border: solid 1px #326e87;
+
+}
+
+.search_table tbody tr th {
+
+	background: #1c5d79;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	font-size: 14px;
+
+	padding: 6px;
+
+	text-align: center;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+	border-bottom: solid 1px white;
+
+}
+
+.search_table tbody tr th:hover {
+
+/*background: #ffffff; */
+
+
+
+}
+
+
+
+/* LINKS */
+
+
+
+.search_table a {
+
+	color: #FF6600;
+
+	text-decoration: none;
+
+	font-size: 13px;
+
+	border-bottom: solid 1px white;
+
+}
+
+.search_table a:hover {
+
+	color: #FF9900;
+
+	border-bottom: none;
+
+}
+
+/* FOOTER */
+
+
+
+.search_table tfoot {
+
+	background: #f3f3f3;
+
+	height: 24px;
+
+	line-height: 24px;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	font-size: 14px;
+
+	font-weight: bold;
+
+	color: #555d6d;
+
+	text-align: center;
+
+	letter-spacing: 3px;
+
+	border-top: solid 2px #326e87;
+
+	border-bottom: dashed 1px #c2c2c2;
+
+}
+
+.search_table tfoot tr th, tfoot tr td {
+
+	/*padding: .1em .6em;*/
+
+
+
+}
+
+.search_table tfoot tr th {
+
+	border-top: solid 1px #326e87;
+
+}
+
+.search_table tfoot tr td {
+
+	text-align: right;
+}
+
+.post-content-widget {
+	margin-top:20px;
+}
+
+.post-content-widget h3 {
+	margin:0px;
+	padding:10px;
+}
+
+.post-content-widget h3 a {
+	text-decoration:none;
+
+}
+
+
+.post-content-widget-details {
+	padding:10px;
+}
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px;
+}
+
+#errorExplanation ul {
+  margin: 2px 24px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}
+

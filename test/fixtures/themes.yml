@@ -1,0 +1,21 @@
+one:
+  theme_name: MyString
+  fio: MyString
+  year_name: MyString
+  text_avtoref: MyText
+  text_disser: MyText
+  profession_id: 1
+  organization_id: 1
+  area_id: 1
+  delta: false
+
+two:
+  theme_name: MyString
+  fio: MyString
+  year_name: MyString
+  text_avtoref: MyText
+  text_disser: MyText
+  profession_id: 1
+  organization_id: 1
+  area_id: 1
+  delta: false

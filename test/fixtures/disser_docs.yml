@@ -1,0 +1,9 @@
+one:
+  ddoc_file_name: MyString
+  ddoc_content_type: MyString
+  ddoc_file_size: 1
+
+two:
+  ddoc_file_name: MyString
+  ddoc_content_type: MyString
+  ddoc_file_size: 1

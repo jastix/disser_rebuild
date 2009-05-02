@@ -1,0 +1,7 @@
+<% title  "Регистрация" %>
+
+<% form_for @user do |form| %>
+  <%= render :partial => '/users/form', :object => form %>
+  <%= form.submit 'Зарегистрироваться', :disable_with => 'Please wait...' %>
+<% end %>
+

@@ -1,0 +1,21 @@
+<% title "Disser Docs" %>
+
+<table>
+  <tr>
+    <th>Ddoc File Name</th>
+    <th>Ddoc Content Type</th>
+    <th>Ddoc File Size</th>
+  </tr>
+  <% for disser_doc in @disser_docs %>
+    <tr>
+      <td><%=h disser_doc.ddoc_file_name %></td>
+      <td><%=h disser_doc.ddoc_content_type %></td>
+      <td><%=h disser_doc.ddoc_file_size %></td>
+      <td><%= link_to "Show", disser_doc %></td>
+      <td><%= link_to "Edit", edit_disser_doc_path(disser_doc) %></td>
+      <td><%= link_to "Destroy", disser_doc, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Disser Doc", new_disser_doc_path %></p>

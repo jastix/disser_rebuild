@@ -1,0 +1,9 @@
+one:
+  profession_name: MyString
+  code_name: MyString
+  grade_id: 1
+
+two:
+  profession_name: MyString
+  code_name: MyString
+  grade_id: 1

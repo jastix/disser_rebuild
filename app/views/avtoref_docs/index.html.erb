@@ -1,0 +1,21 @@
+<% title "Avtoref Docs" %>
+
+<table>
+  <tr>
+    <th>Adoc File Name</th>
+    <th>Adoc Content Type</th>
+    <th>Adoc File Size</th>
+  </tr>
+  <% for avtoref_doc in @avtoref_docs %>
+    <tr>
+      <td><%=h avtoref_doc.adoc_file_name %></td>
+      <td><%=h avtoref_doc.adoc_content_type %></td>
+      <td><%=h avtoref_doc.adoc_file_size %></td>
+      <td><%= link_to "Show", avtoref_doc %></td>
+      <td><%= link_to "Edit", edit_avtoref_doc_path(avtoref_doc) %></td>
+      <td><%= link_to "Destroy", avtoref_doc, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Avtoref Doc", new_avtoref_doc_path %></p>

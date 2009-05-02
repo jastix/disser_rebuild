@@ -1,0 +1,2 @@
+module AvtorefPdfsHelper
+end

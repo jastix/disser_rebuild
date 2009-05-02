@@ -1,0 +1,17 @@
+<% title "Организации" %>
+
+<table>
+  <tr>
+    <th>Название</th>
+  </tr>
+  <% for organization in @organizations %>
+    <tr>
+      <td><%=h organization.organization_name %></td>
+      <td><%= link_to "редактировать", edit_organization_path(organization) %></td>
+      <td><%= link_to "удалить", organization, :confirm => 'Уверены?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Добавить организацию", new_organization_path %></p>
+

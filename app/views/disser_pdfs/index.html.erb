@@ -1,0 +1,21 @@
+<% title "Disser Pdfs" %>
+
+<table>
+  <tr>
+    <th>Dpdf File Name</th>
+    <th>Dpdf Content Type</th>
+    <th>Dpdf File Size</th>
+  </tr>
+  <% for disser_pdf in @disser_pdfs %>
+    <tr>
+      <td><%=h disser_pdf.dpdf_file_name %></td>
+      <td><%=h disser_pdf.dpdf_content_type %></td>
+      <td><%=h disser_pdf.dpdf_file_size %></td>
+      <td><%= link_to "Show", disser_pdf %></td>
+      <td><%= link_to "Edit", edit_disser_pdf_path(disser_pdf) %></td>
+      <td><%= link_to "Destroy", disser_pdf, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Disser Pdf", new_disser_pdf_path %></p>

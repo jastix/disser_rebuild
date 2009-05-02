@@ -1,0 +1,16 @@
+<% title "Grades" %>
+
+<table>
+  <tr>
+    <th>Grade Name</th>
+  </tr>
+  <% for grade in @grades %>
+    <tr>
+      <td><%=h grade.grade_name %></td>
+      <td><%= link_to "Edit", edit_grade_path(grade) %></td>
+      <td><%= link_to "Destroy", grade, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Grade", new_grade_path %></p>

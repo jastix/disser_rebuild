@@ -1,0 +1,16 @@
+<% form_for @disser_doc do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :ddoc_file_name %><br />
+    <%= f.text_field :ddoc_file_name %>
+  </p>
+  <p>
+    <%= f.label :ddoc_content_type %><br />
+    <%= f.text_field :ddoc_content_type %>
+  </p>
+  <p>
+    <%= f.label :ddoc_file_size %><br />
+    <%= f.text_field :ddoc_file_size %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

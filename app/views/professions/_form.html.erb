@@ -1,0 +1,17 @@
+<% form_for @profession do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :profession_name %><br />
+    <%= f.text_field :profession_name %>
+  </p>
+  <p>
+    <%= f.label :code_name %><br />
+    <%= f.text_field :code_name %>
+  </p>
+  <p>
+    <%= f.label :grade_id %><br />
+    <%=  collection_select(:profession, :grade_id, @grades, :id, :grade_name) %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+

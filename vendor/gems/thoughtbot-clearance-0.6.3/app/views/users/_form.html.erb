@@ -1,0 +1,23 @@
+<%= form.error_messages %>
+<div class="text_field">
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+</div>
+<div class="password_field">
+  <%= form.label :password, "Пароль" %>
+  <%= form.password_field :password %>
+</div>
+<div class="password_field">
+  <%= form.label :password_confirmation, "Повторите пароль" %>
+  <%= form.password_field :password_confirmation %>
+</div>
+
+<p> <li>
+<% for role in Role.find(:all) %>
+	<div>
+	<%= radio_button_tag "user[role_ids][]", role.id, @user.roles.include?(role)%>
+	<%= role.name %>
+	</div>
+<% end %>
+</li></p>
+

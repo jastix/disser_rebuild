@@ -1,0 +1,16 @@
+<% form_for @avtoref_pdf do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :apdf_file_name %><br />
+    <%= f.text_field :apdf_file_name %>
+  </p>
+  <p>
+    <%= f.label :apdf_content_type %><br />
+    <%= f.text_field :apdf_content_type %>
+  </p>
+  <p>
+    <%= f.label :apdf_file_size %><br />
+    <%= f.text_field :apdf_file_size %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

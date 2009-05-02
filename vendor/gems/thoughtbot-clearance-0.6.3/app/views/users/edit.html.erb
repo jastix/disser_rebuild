@@ -1,0 +1,7 @@
+<% title "Редактирование пользователя" %>
+
+<% form_for @user do |form| %>
+  <%= render :partial => '/users/form', :object => form %>
+  <%= form.submit 'Сохранить', :disable_with => 'Please wait...' %>
+<% end %>
+

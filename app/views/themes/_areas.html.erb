@@ -1,0 +1,4 @@
+<%= collection_select(:theme, :area_ids, Area.find(:all), :id, :area_name, {},
+			{:name => 'theme[area_ids][]', :onchange => "#{remote_function(:url => {:action => "update_areas"},
+			:with => "'area_id='+value")}", :multiple=> true})%>
+

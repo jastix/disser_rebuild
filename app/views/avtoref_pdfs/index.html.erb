@@ -1,0 +1,21 @@
+<% title "Avtoref Pdfs" %>
+
+<table>
+  <tr>
+    <th>Apdf File Name</th>
+    <th>Apdf Content Type</th>
+    <th>Apdf File Size</th>
+  </tr>
+  <% for avtoref_pdf in @avtoref_pdfs %>
+    <tr>
+      <td><%=h avtoref_pdf.apdf_file_name %></td>
+      <td><%=h avtoref_pdf.apdf_content_type %></td>
+      <td><%=h avtoref_pdf.apdf_file_size %></td>
+      <td><%= link_to "Show", avtoref_pdf %></td>
+      <td><%= link_to "Edit", edit_avtoref_pdf_path(avtoref_pdf) %></td>
+      <td><%= link_to "Destroy", avtoref_pdf, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Avtoref Pdf", new_avtoref_pdf_path %></p>

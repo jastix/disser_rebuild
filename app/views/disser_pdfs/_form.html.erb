@@ -1,0 +1,16 @@
+<% form_for @disser_pdf do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :dpdf_file_name %><br />
+    <%= f.text_field :dpdf_file_name %>
+  </p>
+  <p>
+    <%= f.label :dpdf_content_type %><br />
+    <%= f.text_field :dpdf_content_type %>
+  </p>
+  <p>
+    <%= f.label :dpdf_file_size %><br />
+    <%= f.text_field :dpdf_file_size %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

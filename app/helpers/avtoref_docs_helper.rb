@@ -1,0 +1,2 @@
+module AvtorefDocsHelper
+end

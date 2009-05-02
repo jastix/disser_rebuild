@@ -1,0 +1,20 @@
+<% title "Disser Doc" %>
+
+<p>
+  <strong>Ddoc File Name:</strong>
+  <%=h @disser_doc.ddoc_file_name %>
+</p>
+<p>
+  <strong>Ddoc Content Type:</strong>
+  <%=h @disser_doc.ddoc_content_type %>
+</p>
+<p>
+  <strong>Ddoc File Size:</strong>
+  <%=h @disser_doc.ddoc_file_size %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_disser_doc_path(@disser_doc) %> |
+  <%= link_to "Destroy", @disser_doc, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", disser_docs_path %>
+</p>

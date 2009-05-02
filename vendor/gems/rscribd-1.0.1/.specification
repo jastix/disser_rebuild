@@ -1,0 +1,91 @@
+--- !ruby/object:Gem::Specification 
+name: rscribd
+version: !ruby/object:Gem::Version 
+  version: 1.0.1
+platform: ruby
+authors: 
+- Jared Friedman, Tim Morgan
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-03-04 00:00:00 +03:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: mime-types
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">"
+      - !ruby/object:Gem::Version 
+        version: 0.0.0
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: hoe
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 1.9.0
+    version: 
+description: This gem provides a simple and powerful library for the Scribd API, allowing you to write Ruby applications or Ruby on Rails websites that upload, convert, display, search, and control documents in many formats. For more information on the Scribd platform, visit http://www.scribd.com/publisher
+email: api@scribd.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- History.txt
+- Manifest.txt
+- README.txt
+- sample/test.txt
+files: 
+- History.txt
+- Manifest.txt
+- README.txt
+- Rakefile
+- lib/scribdapi.rb
+- lib/scribddoc.rb
+- lib/scribderrors.rb
+- lib/scribdmultiparthack.rb
+- lib/scribdresource.rb
+- lib/rscribd.rb
+- lib/scribduser.rb
+- sample/01_upload.rb
+- sample/02_user.rb
+- sample/test.txt
+has_rdoc: true
+homepage: 
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --main
+- README.txt
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: rscribd
+rubygems_version: 1.3.2
+signing_key: 
+specification_version: 2
+summary: Ruby client library for the Scribd API
+test_files: []
+

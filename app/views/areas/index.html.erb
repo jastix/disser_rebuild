@@ -1,0 +1,16 @@
+<% title "Areas" %>
+
+<table>
+  <tr>
+    <th>Area Name</th>
+  </tr>
+  <% for area in @areas %>
+    <tr>
+      <td><%=h area.area_name %></td>
+      <td><%= link_to "Edit", edit_area_path(area) %></td>
+      <td><%= link_to "Destroy", area, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Area", new_area_path %></p>

@@ -1,0 +1,21 @@
+<div class="user_table">
+<table >
+	<caption>Пользователи</caption>
+
+	<tr>
+		<th>№</th><th>Имя</th><th>Роль</th><th>Действия</th>
+	</tr>
+
+	<% @user.each do |u| %>
+
+	<tr class="<%= cycle("even","odd")%>" >
+		<td><%=u.id %></td>
+		<td><%= u.login %></td>
+		<td><% u.roles.each do |r| %> <%=r.name%><% end %></td>
+		<td><%= link_to 'Редактировать', :action =>'edit', :id => u.id %><br /><br />
+			<small><%= link_to 'Удалить', :action => :delete, :id => u.id %> </small> </td>
+	</tr>
+	<% end %>
+</table>
+</div>
+

@@ -1,0 +1,9 @@
+one:
+  apdf_file_name: MyString
+  apdf_content_type: MyString
+  apdf_file_size: 1
+
+two:
+  apdf_file_name: MyString
+  apdf_content_type: MyString
+  apdf_file_size: 1

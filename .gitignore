@@ -1,0 +1,10 @@
+log/*.log
+tmp/**/*
+.DS_Store
+doc/api
+doc/app
+coverage
+db/*.sqlite3
+public/system
+config/scribd_fu.yml
+

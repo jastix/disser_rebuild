@@ -1,0 +1,20 @@
+<% title "Вход"%>
+
+<% form_for :session, :url => session_path do |form| %>
+  <div class="text_field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  <div class="text_field">
+    <%= form.label :пароль %>
+    <%= form.password_field :password %>
+  </div>
+  <div class="text_field">
+    <%= form.check_box :remember_me %>
+    <%= form.label :запомнить %>
+  </div>
+  <div class="submit_field">
+    <%= form.submit "Войти", :disable_with => "Please wait..." %>
+  </div>
+<% end %>
+

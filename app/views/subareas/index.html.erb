@@ -1,0 +1,16 @@
+<% title "Subareas" %>
+
+<table>
+  <tr>
+    <th>Subarea Name</th>
+  </tr>
+  <% for subarea in @subareas %>
+    <tr>
+      <td><%=h subarea.subarea_name %></td>
+      <td><%= link_to "Edit", edit_subarea_path(subarea) %></td>
+      <td><%= link_to "Destroy", subarea, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Subarea", new_subarea_path %></p>

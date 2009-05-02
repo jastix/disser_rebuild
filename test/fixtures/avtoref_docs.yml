@@ -1,0 +1,9 @@
+one:
+  adoc_file_name: MyString
+  adoc_content_type: MyString
+  adoc_file_size: 1
+
+two:
+  adoc_file_name: MyString
+  adoc_content_type: MyString
+  adoc_file_size: 1

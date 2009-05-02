@@ -1,0 +1,29 @@
+<div class="header">
+                        <div id="navcontainer">
+				<ul id="navlist">
+                                <% if signed_in? %>
+                                        <li><%= link_to 'Выход', session_url, :method => :delete %></li>
+					<% if  current_user.has_role?("admin") %>
+					<li><%= link_to 'Регистрация', new_user_path %></li>
+                                        <% end %>
+                                        <% if  admin_do?(current_user) %>
+					<li><%= link_to 'Пользователи', users_path %></li>
+					<li><%= link_to "Добавить", new_theme_path %></li>
+					<li><%= link_to "Записи", themes_path %></li>
+                                        <% end %>
+					<% else %>
+					<li><%= link_to 'Вход', new_session_path %></li>
+					<% end %>
+				</ul>
+			</div>
+                        </div>
+<% if signed_in? %>
+<ul id="references">
+	<li><%= link_to "Организации", organizations_path %></li>
+	<li><%= link_to "Степени", grades_path %></li>
+	<li><%= link_to "Области", areas_path %></li>
+	<li><%= link_to "Подобласти", subareas_path %></li>
+	<li><%= link_to "Специальности", professions_path %></li>
+</ul>
+<% end %>
+
