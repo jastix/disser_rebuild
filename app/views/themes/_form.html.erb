@@ -76,7 +76,7 @@
 
 
 <p><% f.fields_for :disser_pdf do |dip| %>
-	Doc <%= dip.file_field :dpdf %> <% if @theme.disser_pdf != nil and @theme.disser_pdf.dpdf.exists? %>Текущий файл: <%= @theme.disser_pdf.dpdf.original_filename %>
+	Pdf <%= dip.file_field :dpdf %> <% if @theme.disser_pdf != nil and @theme.disser_pdf.dpdf.exists? %>Текущий файл: <%= @theme.disser_pdf.dpdf.original_filename %>
 	<% end %><br /></p>
 <% unless dip.object.nil? || dip.object.new_record?%>
 <p>

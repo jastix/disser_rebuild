@@ -7,4 +7,5 @@ coverage
 db/*.sqlite3
 public/system
 config/scribd_fu.yml
+config/deploy.rb
 

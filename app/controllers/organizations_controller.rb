@@ -19,7 +19,7 @@ before_filter :authenticate
     respond_to do |wants|
       if @organization.save
         wants.html do
-          flash[:notice] = "Successfully created organization."
+          flash[:notice] = "Организация добавлена."
           redirect_to organizations_url
         end
 
@@ -44,7 +44,7 @@ before_filter :authenticate
     respond_to do |wants|
       if @organization.update_attributes(params[:organization])
         wants.html do
-          flash[:notice] = "Successfully updated organization."
+          flash[:notice] = "Организация сохранена."
           redirect_to organizations_url
         end
 
@@ -58,7 +58,7 @@ before_filter :authenticate
   def destroy
     @organization = Organization.find(params[:id])
     @organization.destroy
-    flash[:notice] = "Successfully removed organization."
+    flash[:notice] = "Организация удалена."
     redirect_to organizations_url
   end
 end

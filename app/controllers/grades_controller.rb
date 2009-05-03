@@ -19,7 +19,7 @@ before_filter :authenticate
     respond_to do |wants|
       if @grade.save
         wants.html do
-          flash[:notice] = "Successfully created grade."
+          flash[:notice] = "Степень добавлена."
           redirect_to grades_url
         end
 
@@ -44,7 +44,7 @@ before_filter :authenticate
     respond_to do |wants|
       if @grade.update_attributes(params[:grade])
         wants.html do
-          flash[:notice] = "Successfully updated grade."
+          flash[:notice] = "Степень сохранена."
           redirect_to grades_url
         end
 
@@ -58,7 +58,7 @@ before_filter :authenticate
   def destroy
     @grade = Grade.find(params[:id])
     @grade.destroy
-    flash[:notice] = "Successfully removed grade."
+    flash[:notice] = "Степень удалена."
     redirect_to grades_url
   end
 end

@@ -19,7 +19,7 @@ before_filter :authenticate
     respond_to do |wants|
       if @subarea.save
         wants.html do
-          flash[:notice] = "Successfully created subarea."
+          flash[:notice] = "Подобласть добавлена."
           redirect_to subareas_url
         end
 
@@ -44,7 +44,7 @@ before_filter :authenticate
     respond_to do |wants|
       if @subarea.update_attributes(params[:subarea])
         wants.html do
-          flash[:notice] = "Successfully updated subarea."
+          flash[:notice] = "Подобласть сохранена."
           redirect_to subareas_url
         end
 
@@ -58,7 +58,7 @@ before_filter :authenticate
   def destroy
     @subarea = Subarea.find(params[:id])
     @subarea.destroy
-    flash[:notice] = "Successfully removed subarea."
+    flash[:notice] = "Подобласть удалена."
     redirect_to subareas_url
   end
 end

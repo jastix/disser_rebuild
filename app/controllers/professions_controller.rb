@@ -2,10 +2,12 @@ class ProfessionsController < ApplicationController
 before_filter :authenticate
 
   def index
+    @grades = Grade.all
     @professions = Profession.all
   end
 
   def new
+
     @profession = Profession.new
     @grades = Grade.find(:all)
     respond_to do |wants|
@@ -20,7 +22,7 @@ before_filter :authenticate
     respond_to do |wants|
       if @profession.save
         wants.html do
-          flash[:notice] = "Successfully created profession."
+          flash[:notice] = "Специальность добавлена."
           redirect_to professions_url
         end
 
@@ -32,6 +34,7 @@ before_filter :authenticate
   end
 
   def edit
+    @grades = Grade.all
     @profession = Profession.find(params[:id])
     respond_to do |wants|
       wants.html
@@ -45,7 +48,7 @@ before_filter :authenticate
     respond_to do |wants|
       if @profession.update_attributes(params[:profession])
         wants.html do
-          flash[:notice] = "Successfully updated profession."
+          flash[:notice] = "Данные записаны."
           redirect_to professions_url
         end
 
@@ -59,7 +62,7 @@ before_filter :authenticate
   def destroy
     @profession = Profession.find(params[:id])
     @profession.destroy
-    flash[:notice] = "Successfully removed profession."
+    flash[:notice] = "Специальность удалена."
     redirect_to professions_url
   end
 end

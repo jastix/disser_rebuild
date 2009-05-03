@@ -1,16 +1,17 @@
-<% title "Subareas" %>
+<% title "Подобласти" %>
 
 <table>
   <tr>
-    <th>Subarea Name</th>
+    <th>Название</th>
   </tr>
   <% for subarea in @subareas %>
     <tr>
       <td><%=h subarea.subarea_name %></td>
-      <td><%= link_to "Edit", edit_subarea_path(subarea) %></td>
-      <td><%= link_to "Destroy", subarea, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "редактировать", edit_subarea_path(subarea) %></td>
+      <td><%= link_to "удалить", subarea, :confirm => 'Уверены?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Subarea", new_subarea_path %></p>
+<p><%= link_to "Добавить подобласть", new_subarea_path %></p>
+

@@ -44,7 +44,7 @@ params[:theme][:area_ids] ||= []
     respond_to do |wants|
       if @theme.save
         wants.html do
-          flash[:notice] = "Successfully created theme."
+          flash[:notice] = "Запись добавлена."
           redirect_to themes_url
         end
 
@@ -72,7 +72,7 @@ params[:theme][:area_ids] ||= []
     respond_to do |wants|
       if @theme.update_attributes(params[:theme])
         wants.html do
-          flash[:notice] = "Successfully updated theme."
+          flash[:notice] = "Запись сохранена."
           redirect_to themes_url
         end
 
@@ -86,7 +86,7 @@ params[:theme][:area_ids] ||= []
   def destroy
     @theme = Theme.find(params[:id])
     @theme.destroy
-    flash[:notice] = "Successfully removed theme."
+    flash[:notice] = "Запись удалена."
     redirect_to themes_url
   end
 

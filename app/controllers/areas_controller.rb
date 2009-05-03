@@ -19,7 +19,7 @@ before_filter :authenticate
     respond_to do |wants|
       if @area.save
         wants.html do
-          flash[:notice] = "Successfully created area."
+          flash[:notice] = "Область добавлена."
           redirect_to areas_url
         end
 
@@ -44,7 +44,7 @@ before_filter :authenticate
     respond_to do |wants|
       if @area.update_attributes(params[:area])
         wants.html do
-          flash[:notice] = "Successfully updated area."
+          flash[:notice] = "Данные сохранены."
           redirect_to areas_url
         end
 
@@ -58,7 +58,7 @@ before_filter :authenticate
   def destroy
     @area = Area.find(params[:id])
     @area.destroy
-    flash[:notice] = "Successfully removed area."
+    flash[:notice] = "Область удалена."
     redirect_to areas_url
   end
 end
