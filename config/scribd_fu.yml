@@ -1,0 +1,10 @@
+#Scribd Account Info
+
+
+key: 6fe8ktzt99hilxzznank8
+secret: sec-9cbwuo12z2zuw228ng4x3ioly5
+user: jastix
+password:
+access: private
+#storage: s3 # Uncomment if Attachment_fu is using Amazon S3 for storage
+
