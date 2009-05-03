@@ -3,7 +3,7 @@
     #############################################################
 
     set :application, "Disser"
-    set :deploy_to, "/home/deploy/#{application}"
+    set :deploy_to, "/home/rails/#{application}"
 
    #############################################################
     # Settings
@@ -17,13 +17,13 @@
 
 PREFIX="/usr"
 REE="ruby-enterprise-1.8.6-20090421"
-RUBYGEMS="rubygems-1.3.2"
+#RUBYGEMS="rubygems-1.3.2"
    #############################################################
    # Servers
    #############################################################
 
    set :user, "rails"
-   set :user_passphrase, ""
+   set :user_passphrase, "polip123"
    set :domain, "dis.mine.nu"
    server domain, :app, :web
    role :db, domain, :primary => true
@@ -35,7 +35,7 @@ RUBYGEMS="rubygems-1.3.2"
    set :scm, :git
    set :branch, "master"
    set :scm_user, "jastix"
-   set :scm_passphrase, ""
+   set :scm_passphrase, "h@te_4_sun5da3ys"
    set :repository, "git@github.com:jastix/disser_rebuild.git"
    set :deploy_via, :remote_cache
 
@@ -97,13 +97,13 @@ RUBYGEMS="rubygems-1.3.2"
      task :install_rails_stack do
        [ "mkdir -p src",
          "cd src",
-         "wget http://rubyforge.org/frs/download.php/55511/$REE.tar.gz",
-         "tar xzvf $REE.tar.gz",
-         "pushd $REE/ && sudo ./installer --dont-install-useful-gems -a $PREFIX",
-         "popd",
-         "wget http://rubyforge.org/frs/download.php/45905/$RUBYGEMS.tgz",
-         "tar xzvf $RUBYGEMS.tgz",
-         "cd $RUBYGEMS/ && sudo ruby setup.rb",
+         "wget http://rubyforge.org/frs/download.php/55511/#{REE}.tar.gz",
+         "tar xzvf #{REE}.tar.gz",
+         "cd #{REE}/ && sudo ./installer --dont-install-useful-gems -a #{PREFIX}",
+         "cd ..",
+         "wget http://rubyforge.org/frs/download.php/55066/rubygems-1.3.2.tgz",
+         "tar xzvf rubygems-1.3.2.tgz",
+         "cd rubygems-1.3.2.tgz/ && sudo ruby setup.rb",
          "sudo gem update --system",
         "sudo gem install rails pg rake  --no-ri --no-rdoc"
       ].each {|cmd| run cmd}
@@ -114,8 +114,8 @@ desc "Install sphinx"
        [ "cd src",
          "wget http://www.sphinxsearch.com/downloads/sphinx-0.9.9-rc2.tar.gz",
          "tar xzvf sphinx-0.9.9-rc2.tar.gz",
-         "pushd sphinx-0.9.9-rc2.tar.gz/ && ./configure -a $PREFIX && make && sudo checkinstall",
-         "popd"
+         "cd sphinx-0.9.9-rc2.tar.gz/ && ./configure -a #{PREFIX} && make && sudo checkinstall",
+         "cd .."
       ].each {|cmd| run cmd}
     end
 
@@ -160,8 +160,9 @@ desc "Install sphinx"
     task :apache_reload do
       sudo "/etc/init.d/apache2 reload"
     end
-  end
 =end
+  end
+
   #############################################################
   # Deploy for Passenger
   #############################################################
