@@ -1,0 +1,3 @@
+ production:
+    morphology = stem_en, stem_ru
+
