@@ -1,8 +1,9 @@
 <% form_for @area do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :area_name %><br />
+    <%= f.label :area_name, 'Название области' %><br />
     <%= f.text_field :area_name %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit "Отправить" %></p>
 <% end %>
+

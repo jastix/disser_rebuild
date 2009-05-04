@@ -10,17 +10,7 @@ def admin_do?(current_user)
 end
 
 
-def link_to_back (description = "Back")
-   referer = request.env["HTTP_REFERER"]
-   return false if !referer
-   getIt = request.env["REQUEST_URI"].split("?")[1]
-   if getIt.nil?
-     getIt = ""
-     else
-       getIt = "?" + getIt if !getIt.match(/\?/)
-   end
-   link_to description, referer + getIt
-end
+
 
 
 end

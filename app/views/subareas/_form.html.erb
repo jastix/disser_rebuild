@@ -1,8 +1,9 @@
 <% form_for @subarea do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :subarea_name %><br />
+    <%= f.label :subarea_name, 'Название подобласти' %><br />
     <%= f.text_field :subarea_name %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit "Отправить" %></p>
 <% end %>
+

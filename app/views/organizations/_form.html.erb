@@ -1,8 +1,9 @@
 <% form_for @organization do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :organization_name %><br />
+    <%= f.label :organization_name, 'Название организации' %><br />
     <%= f.text_field :organization_name %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit "Отправить" %></p>
 <% end %>
+

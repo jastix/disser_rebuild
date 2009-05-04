@@ -48,5 +48,5 @@ production:
   database: new_production
   pool: 3
   username: rails
-  password: volume22
+  password: 123
 

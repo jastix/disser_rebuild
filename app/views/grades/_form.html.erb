@@ -1,8 +1,9 @@
 <% form_for @grade do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :grade_name %><br />
+    <%= f.label :grade_name, 'Название степени' %><br />
     <%= f.text_field :grade_name %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit "Отправить" %></p>
 <% end %>
+

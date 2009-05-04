@@ -23,7 +23,7 @@ REE="ruby-enterprise-1.8.6-20090421"
    #############################################################
 
    set :user, "rails"
-   set :user_passphrase, "polip123"
+   set :user_passphrase, ""
    set :domain, "dis.mine.nu"
    server domain, :app, :web
    role :db, domain, :primary => true
@@ -35,7 +35,7 @@ REE="ruby-enterprise-1.8.6-20090421"
    set :scm, :git
    set :branch, "master"
    set :scm_user, "jastix"
-   set :scm_passphrase, "h@te_4_sun5da3ys"
+   set :scm_passphrase, ""
    set :repository, "git@github.com:jastix/disser_rebuild.git"
    set :deploy_via, :remote_cache
 
