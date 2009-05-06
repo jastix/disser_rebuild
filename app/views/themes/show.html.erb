@@ -4,15 +4,15 @@
 <strong>Название: </strong> <%= @theme.theme_name %><br />
 <strong>Год: </strong> <%= @theme.year_name %> <br />
 <strong>Организация: </strong> <%= @theme.organization.organization_name %> <br />
-<strong>Шифр: </strong> <%= @theme.profession.code_name %> <br />
-<strong>Специальность: </strong> <%= @theme.profession.profession_name %> <br />
+<strong>Шифр: </strong> <%= @theme.professions.map {|code| code.code_name}.compact.join(' , ') %> <br />
+<strong>Специальность: </strong> <%= @theme.professions.map{|name| name.profession_name}.compact.join(' ; ') %> <br />
 
 <strong>Области: </strong> <%= @theme.areas.map {|ar| ar.area_name}.compact.join(",") %> <br />
 
 <strong>Подобласти: </strong> <%= @theme.subareas.map {|subar| subar.subarea_name}.compact.join(",") %> <br />
 
 
-<strong>Степень: </strong> <%= @theme.profession.grade.grade_name %> <br />
+<strong>Степень: </strong> <%= @theme.grade.grade_name %> <br />
 <strong>Текст автореферата: </strong> <% if @theme.avtoref_pdf != nil and @theme.avtoref_pdf.ipaper_id != nil %>
 	<%= link_to "Просмотр", {:controller => :themes, :action => :show_avtoref_pdf, :id => @theme.id}, :target => "_blank" %>
 		<% elsif @theme.avtoref_doc != nil and @theme.avtoref_doc.ipaper_id != nil %>

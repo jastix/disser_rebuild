@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label :subarea_name, 'Название подобласти' %><br />
-    <%= f.text_field :subarea_name %>
+    <%= f.text_field :subarea_name, {:size => 50} %>
   </p>
   <p><%= f.submit "Отправить" %></p>
 <% end %>

@@ -1,6 +1,6 @@
-<%= collection_select(:profession,
+<%= collection_select(:theme,
  :grade_id,
-  Grade.find(:all),
+  @grades,
    :id,
-    :grade_name)%>
+    :grade_name, {}, {})%>
 

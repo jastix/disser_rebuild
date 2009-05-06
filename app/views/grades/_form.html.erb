@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label :grade_name, 'Название степени' %><br />
-    <%= f.text_field :grade_name %>
+    <%= f.text_field :grade_name, {:size => 50} %>
   </p>
   <p><%= f.submit "Отправить" %></p>
 <% end %>

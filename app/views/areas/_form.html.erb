@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label :area_name, 'Название области' %><br />
-    <%= f.text_field :area_name %>
+    <%= f.text_field :area_name, {:size => 50} %>
   </p>
   <p><%= f.submit "Отправить" %></p>
 <% end %>

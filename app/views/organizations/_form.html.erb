@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label :organization_name, 'Название организации' %><br />
-    <%= f.text_field :organization_name %>
+    <%= f.text_field :organization_name, {:size => 70} %>
   </p>
   <p><%= f.submit "Отправить" %></p>
 <% end %>

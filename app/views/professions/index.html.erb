@@ -4,13 +4,12 @@
   <tr>
     <th>Специальность</th>
     <th>Шифр</th>
-    <th>Степень</th>
+
   </tr>
   <% for profession in @professions %>
     <tr>
       <td><%=h profession.profession_name %></td>
       <td><%=h profession.code_name %></td>
-      <td><%=h profession.grade.grade_name %></td>
       <td><%= link_to "редактировать", edit_profession_path(profession) %></td>
       <td><%= link_to "удалить", profession, :confirm => 'Уверены?', :method => :delete %></td>
     </tr>

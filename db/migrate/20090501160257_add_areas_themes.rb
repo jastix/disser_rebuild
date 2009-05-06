@@ -4,6 +4,7 @@ class AddAreasThemes < ActiveRecord::Migration
     t.integer "area_id"
     t.integer "theme_id"
   end
+        add_index :areas_themes, [:area_id, :theme_id]
   end
 
   def self.down

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090502194550) do
+ActiveRecord::Schema.define(:version => 20090506160506) do
 
   create_table "areas", :force => true do |t|
     t.string   "area_name",  :null => false
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20090502194550) do
     t.integer "area_id"
     t.integer "theme_id"
   end
+
+  add_index "areas_themes", ["area_id", "theme_id"], :name => "index_areas_themes_on_area_id_and_theme_id"
 
   create_table "avtoref_docs", :force => true do |t|
     t.string   "adoc_file_name"
@@ -92,13 +94,6 @@ ActiveRecord::Schema.define(:version => 20090502194550) do
 
   add_index "grades", ["grade_name"], :name => "index_grades_on_grade_name"
 
-  create_table "grades_professions", :id => false, :force => true do |t|
-    t.integer "grade_id"
-    t.integer "profession_id"
-  end
-
-  add_index "grades_professions", ["grade_id", "profession_id"], :name => "index_grades_professions_on_grade_id_and_profession_id"
-
   create_table "organizations", :force => true do |t|
     t.string   "organization_name", :null => false
     t.datetime "created_at"
@@ -110,13 +105,18 @@ ActiveRecord::Schema.define(:version => 20090502194550) do
   create_table "professions", :force => true do |t|
     t.string   "profession_name", :null => false
     t.string   "code_name",       :null => false
-    t.integer  "grade_id",        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "professions", ["code_name", "profession_name"], :name => "index_professions_on_profession_name_and_code_name"
-  add_index "professions", ["grade_id"], :name => "index_professions_on_grade_id"
+  add_index "professions", ["profession_name", "code_name"], :name => "index_professions_on_profession_name_and_code_name"
+
+  create_table "professions_themes", :id => false, :force => true do |t|
+    t.integer "profession_id"
+    t.integer "theme_id"
+  end
+
+  add_index "professions_themes", ["profession_id", "theme_id"], :name => "index_professions_themes_on_profession_id_and_theme_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -150,16 +150,16 @@ ActiveRecord::Schema.define(:version => 20090502194550) do
     t.string   "year_name",       :null => false
     t.text     "text_avtoref"
     t.text     "text_disser"
-    t.integer  "profession_id",   :null => false
     t.integer  "organization_id", :null => false
+    t.integer  "grade_id",        :null => false
     t.boolean  "delta"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "themes", ["fio", "theme_name"], :name => "index_themes_on_theme_name_and_fio"
+  add_index "themes", ["grade_id"], :name => "index_themes_on_grade_id"
   add_index "themes", ["organization_id"], :name => "index_themes_on_organization_id"
-  add_index "themes", ["profession_id"], :name => "index_themes_on_profession_id"
+  add_index "themes", ["theme_name", "fio"], :name => "index_themes_on_theme_name_and_fio"
 
   create_table "users", :force => true do |t|
     t.string   "email"

@@ -1,11 +1,10 @@
-<h1> Новая запись </h1>
-<% @theme.build_avtoref_doc if @theme.avtoref_doc.nil? %>
-<% @theme.build_avtoref_pdf if @theme.avtoref_pdf.nil? %>
-<% @theme.build_disser_doc if @theme.disser_doc.nil? %>
-<% @theme.build_disser_pdf if @theme.disser_pdf.nil? %>
+<%# @theme.build_avtoref_doc if @theme.avtoref_doc.nil? %>
+<%# @theme.build_avtoref_pdf if @theme.avtoref_pdf.nil? %>
+<%# @theme.build_disser_doc if @theme.disser_doc.nil? %>
+<%# @theme.build_disser_pdf if @theme.disser_pdf.nil? %>
 <%= error_messages_for 'theme' -%>
 
-<% form_for (@theme), :url => {:action => 'create'},:html => { :multipart => true}  do |f| %>
+<% form_for (@theme) ,:html => { :multipart => true}  do |f| %>
 
 <p><label for="theme_name">Название работы</label><br/>
 <%= f.text_field  :theme_name, {:size => 100}  %></p>
@@ -21,11 +20,10 @@
 
 
 
-<p><label for="profession_profession_name">Специальность</label><br/></p>
-<%= collection_select(:theme, :profession_id, @professions, :id, :profession_name,
-			{:include_blank => true},
-			{:onchange => "#{remote_function(:url => {:action => "update_grades"},
-			:with => "'profession_id='+value")}"})%>
+<p><label for="profession_name[]">Специальность</label><br/></p>
+<%= collection_select(:theme, :profession_ids, @professions, :id, :profession_name,
+			{},
+			{:name => 'theme[profession_ids][]', :multiple => 'true'})%>
 
 <p><label for="area_name[]">Область</label><br/>
 <div id="areas"><%= render :partial => 'areas', :object => @areas %> </div>

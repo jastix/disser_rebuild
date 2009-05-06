@@ -1,1 +1,2 @@
-<%= collection_select(:theme, :subarea_ids, Subarea.find(:all), :id, :subarea_name, {}, {:name => 'theme[subarea_ids][]', :multiple=>true})%>
+<%= collection_select(:theme, :subarea_ids, @subareas, :id, :subarea_name, {:include_blank => true}, {:name => 'theme[subarea_ids][]', :multiple=>true})%>
+

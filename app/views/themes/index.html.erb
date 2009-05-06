@@ -37,11 +37,11 @@
 	<td valign=top><%= link_to t.theme_name, :controller => :themes, :action => :show, :id => t.id %></td>
 	<td valign=top><%= t.organization.organization_name %></td>
 	<td valign=top><%= t.year_name %></td>
-	<td valign=top><%= t.profession.code_name %></td>
-	<td valign=top><%= t.profession.profession_name %> <% t.areas.each do |ar|%> (<%= ar.area_name %>) <% end %> <% t.subareas.each do |subar| %>(<%= subar.subarea_name %>) <% end %></td>
+	<td valign=top><%= t.professions.map {|code| code.code_name}.compact.join(' , ') %></td>
+	<td valign=top><%= t.professions.map{|name| name.profession_name}.compact.join(' ; ') %> <% t.areas.each do |ar|%> (<%= ar.area_name %>) <% end %> <% t.subareas.each do |subar| %>(<%= subar.subarea_name %>) <% end %></td>
 
 
-	<td valign=top><%= t.profession.grade.grade_name %></td>
+	<td valign=top><%= t.grade.grade_name %></td>
 
 	<td valign=top><% if t.avtoref_pdf != nil and t.avtoref_pdf.ipaper_id != nil %>
 	<%= link_to "Просмотр", {:controller => :themes, :action => :show_avtoref_pdf, :id => t.id}, :target => "_blank" %>

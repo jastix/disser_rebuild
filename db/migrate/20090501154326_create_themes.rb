@@ -6,14 +6,14 @@ class CreateThemes < ActiveRecord::Migration
       t.string :year_name, :null => false
       t.text :text_avtoref
       t.text :text_disser
-      t.integer :profession_id, :null => false
       t.integer :organization_id, :null => false
+      t.integer :grade_id, :null => false
       t.boolean :delta
       t.timestamps
     end
         add_index :themes, [:theme_name, :fio]
-        add_index :themes, [:profession_id]
         add_index :themes, [:organization_id]
+        add_index :themes, [:grade_id]
 
   end
 

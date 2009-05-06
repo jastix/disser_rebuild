@@ -2,14 +2,14 @@ class ProfessionsController < ApplicationController
 before_filter :authenticate
 
   def index
-    @grades = Grade.all
+
     @professions = Profession.all
   end
 
   def new
 
     @profession = Profession.new
-    @grades = Grade.find(:all)
+
     respond_to do |wants|
       wants.html
 
@@ -34,7 +34,7 @@ before_filter :authenticate
   end
 
   def edit
-    @grades = Grade.all
+
     @profession = Profession.find(params[:id])
     respond_to do |wants|
       wants.html
