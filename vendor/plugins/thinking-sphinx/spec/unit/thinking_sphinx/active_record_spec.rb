@@ -64,15 +64,15 @@ describe "ThinkingSphinx::ActiveRecord" do
       
       TestModule::TestModel.define_index do; end
       
-      TestModule::TestModel.should have_received(:before_save)
-      TestModule::TestModel.should have_received(:after_commit)
+      TestModule::TestModel.should have_received(:before_save).with(:toggle_delta)
+      TestModule::TestModel.should have_received(:after_commit).with(:index_delta)
     end
     
     it "should not add before_save and after_commit hooks to the model if delta indexing is disabled" do
       TestModule::TestModel.define_index do; end
       
-      TestModule::TestModel.should_not have_received(:before_save)
-      TestModule::TestModel.should_not have_received(:after_commit)
+      TestModule::TestModel.should_not have_received(:before_save).with(:toggle_delta)
+      TestModule::TestModel.should_not have_received(:after_commit).with(:index_delta)
     end
     
     it "should add an after_destroy hook with delta indexing enabled" do
@@ -189,7 +189,7 @@ describe "ThinkingSphinx::ActiveRecord" do
       @person.toggle_deleted
       
       @client.should have_received(:update).with(
-        "person_core", ["sphinx_deleted"], {@person.sphinx_document_id => 1}
+        "person_core", ["sphinx_deleted"], {@person.sphinx_document_id => [1]}
       )
     end
     
@@ -199,7 +199,7 @@ describe "ThinkingSphinx::ActiveRecord" do
       @person.toggle_deleted
       
       @client.should_not have_received(:update).with(
-        "person_core", ["sphinx_deleted"], {@person.sphinx_document_id => 1}
+        "person_core", ["sphinx_deleted"], {@person.sphinx_document_id => [1]}
       )
     end
     
@@ -220,7 +220,7 @@ describe "ThinkingSphinx::ActiveRecord" do
       @person.toggle_deleted
       
       @client.should have_received(:update).with(
-        "person_delta", ["sphinx_deleted"], {@person.sphinx_document_id => 1}
+        "person_delta", ["sphinx_deleted"], {@person.sphinx_document_id => [1]}
       )
     end
     
@@ -232,7 +232,7 @@ describe "ThinkingSphinx::ActiveRecord" do
       @person.toggle_deleted
       
       @client.should_not have_received(:update).with(
-        "person_delta", ["sphinx_deleted"], {@person.sphinx_document_id => 1}
+        "person_delta", ["sphinx_deleted"], {@person.sphinx_document_id => [1]}
       )
     end
     
@@ -244,7 +244,7 @@ describe "ThinkingSphinx::ActiveRecord" do
       @person.toggle_deleted
 
       @client.should_not have_received(:update).with(
-        "person_delta", ["sphinx_deleted"], {@person.sphinx_document_id => 1}
+        "person_delta", ["sphinx_deleted"], {@person.sphinx_document_id => [1]}
       )
     end
 
@@ -253,7 +253,7 @@ describe "ThinkingSphinx::ActiveRecord" do
       @person.toggle_deleted
       
       @client.should_not have_received(:update).with(
-        "person_delta", ["sphinx_deleted"], {@person.sphinx_document_id => 1}
+        "person_delta", ["sphinx_deleted"], {@person.sphinx_document_id => [1]}
       )
     end
     
@@ -265,7 +265,7 @@ describe "ThinkingSphinx::ActiveRecord" do
       @person.toggle_deleted
       
       @client.should_not have_received(:update).with(
-        "person_delta", ["sphinx_deleted"], {@person.sphinx_document_id => 1}
+        "person_delta", ["sphinx_deleted"], {@person.sphinx_document_id => [1]}
       )
     end
     

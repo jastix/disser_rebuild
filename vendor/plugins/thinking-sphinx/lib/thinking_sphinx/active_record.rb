@@ -1,3 +1,4 @@
+require 'thinking_sphinx/active_record/attribute_updates'
 require 'thinking_sphinx/active_record/delta'
 require 'thinking_sphinx/active_record/search'
 require 'thinking_sphinx/active_record/has_many_association'
@@ -78,6 +79,8 @@ module ThinkingSphinx
             end
             
             after_destroy :toggle_deleted
+            
+            include ThinkingSphinx::ActiveRecord::AttributeUpdates
             
             index
           end
@@ -232,13 +235,13 @@ module ThinkingSphinx
       client.update(
         "#{self.class.sphinx_indexes.first.name}_core",
         ['sphinx_deleted'],
-        {self.sphinx_document_id => 1}
+        {self.sphinx_document_id => [1]}
       ) if self.in_core_index?
       
       client.update(
         "#{self.class.sphinx_indexes.first.name}_delta",
         ['sphinx_deleted'],
-        {self.sphinx_document_id => 1}
+        {self.sphinx_document_id => [1]}
       ) if ThinkingSphinx.deltas_enabled? &&
         self.class.sphinx_indexes.any? { |index| index.delta? } &&
         self.toggled_delta?
