@@ -18,6 +18,7 @@
 			</div>
                         </div>
 <% if signed_in? %>
+<% if  admin_do?(current_user) %>
 <ul id="references">
 	<li><%= link_to "Организации", organizations_path %></li>
 	<li><%= link_to "Степени", grades_path %></li>
@@ -25,5 +26,6 @@
 	<li><%= link_to "Подобласти", subareas_path %></li>
 	<li><%= link_to "Специальности", professions_path %></li>
 </ul>
+<% end %>
 <% end %>
 

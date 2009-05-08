@@ -52,7 +52,7 @@
 	<% if  admin_do?(current_user) %>
 
 	<td valign=top><% if t.disser_pdf != nil and t.disser_pdf.ipaper_id != nil %>
-	<%= link_to "Просмотр", {:controller => :themes, :action => :show_disser_pdf, :id => t.id, :mode => 'disser_pdf'}, :target => "_blank" %>
+	<%= link_to "Просмотр", {:controller => :themes, :action => :show_disser_pdf, :id => t.id}, :target => "_blank" %>
 		<% elsif t.disser_doc != nil and t.disser_doc.ipaper_id != nil %>
 	<%= link_to "Просмотр", {:controller => :themes, :action => :show_disser_doc, :id => t.id}, :target => "_blank" %>
 			<% end %></td>
